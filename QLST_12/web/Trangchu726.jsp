@@ -27,7 +27,7 @@
 </style>
 
     <body>
-        <jsp:include page="Menu.jsp"></jsp:include>
+        <jsp:include page="Menu726.jsp"></jsp:include>
             <div class="container">
                 <div class="row">
                     <div class="col">
@@ -45,7 +45,7 @@
             </div>
             
 
-        <jsp:include page="Footer.jsp"></jsp:include>
+        <jsp:include page="Footer726.jsp"></jsp:include>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
                         function loadMore() {

@@ -31,7 +31,7 @@
                 </c:if>
                 <c:if test="${sessionScope.acc == null}">
                     <li class="nav-item">
-                        <a class="nav-link" href="Login.jsp">Login</a>
+                        <a class="nav-link" href="GDDangNhap726.jsp">Đăng nhập</a>
                     </li>
                 </c:if>
             </ul>
