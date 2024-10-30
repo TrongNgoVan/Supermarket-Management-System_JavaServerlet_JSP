@@ -16,9 +16,9 @@
                 <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
                 <ul class="list-unstyled">
                     <li><a href="https://www.facebook.com/ngovantrong1308" class="text-light">Facebook's Trọng</a></li>
-                    <li><a href="#" class="text-light">Link 2</a></li>
-                    <li><a href="#" class="text-light">Link 3</a></li>
-                    <li><a href="#" class="text-light">Link 4</a></li>
+                    <li><a href="https://github.com/TrongNgoVan" class="text-light">Github's Trọng</a></li>
+                    <li><a href="https://www.youtube.com/@Trong_NV" class="text-light">Youtube's Trọng</a></li>
+                    
                 </ul>
             </div>
             <div class="col-md-4 col-lg-3 col-xl-3">

@@ -55,37 +55,39 @@
 
 <section class="jumbotron text-center">
     <div class="container">
-        <h1 class="jumbotron-heading">Hệ thống Quản lý Siêu Thị</h1>
-        <h3 class="jumbotron-heading">Tập đoàn Bưu Chính Viễn Thông - PTIT</h3>
+        <h1 class="jumbotron-heading">HỆ THỐNG QUẢN LÝ SIÊU THỊ</h1>
+        <h3 class="jumbotron-heading">TẬP ĐOÀN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG - PTIT</h3>
         <h2 class="jumbotron-heading red-text">Posts and Telecommunications Institute of Technology</h2>
     </div>
     <div class="map-container">
         <div class="logo-container">
-            <img src="image/logo.png" alt="Logo" width="180" height="180">
+            <img src="image/logo.png" alt="Logo" width="180" height="180"> <!-- Giảm kích thước hình ảnh -->
         </div>
         <div class="map-description">
             <p>Hệ thống quản lý Siêu thị được xây dựng trên ý tưởng Bài tập lớn môn Phân tích thiết kế hệ thống thông tin do Giảng viên, TS. Đỗ Thị Bích Ngọc giảng dạy!</p>
         </div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.3016784838646!2d105.78789859999999!3d20.980540899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135acce762c2bb9%3A0xbb64e14683ccd786!2zSOG7jWMgVmnhu4duIENOIELGsHUgQ2jDrW5oIFZp4buFbiBUaMO0bmcgLSBIw6AgxJDDtG5n!5e0!3m2!1svi!2s!4v1701147969190!5m2!1svi!2s" width="800" height="450" style="border:10;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.3016784838646!2d105.78789859999999!3d20.980540899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135acce762c2bb9%3A0xbb64e14683ccd786!2zSOG7jWMgVmnhu4duIENOIELGsHUgQ2jDrW5oIFZp4buFbiBUaMO0bmcgLSBIw6AgxJDDtG5n!5e0!3m2!1svi!2s!4v1701147969190!5m2!1svi!2s" width="700" height="400" style="border:10;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> <!-- Giảm kích thước iframe -->
     </div>
 </section>
 
+
 <style>
-     .jumbotron {
-        background-image: url('image/Toa_nha_A2_PTIT.jpg');
-/*         background-image: url('image/ptitnen.jpg');*/
-        background-size: cover;
-        background-position: center;
-        color: #000000; /* Đổi màu chữ thành đen */
-        /* Thêm các thuộc tính khác cho phần tử của bạn nếu cần thiết */
-    }
+    .jumbotron {
+    background-image: url('image/ptitnen.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #000000;  
+}
+
     .map-container {
         position: relative;
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
+        margin: 20px 0;  
     }
-    .logo-container {
+
+     .logo-container {
         margin-right: 20px;
     }
     .logo-container img {
@@ -93,6 +95,7 @@
         height: auto;
         border-radius: 5px; /* Optional: Add border-radius for rounded corners */
     }
+
     .map-description {
         max-width: 400px; /* Adjust the width as needed */
         padding: 30px;
@@ -101,6 +104,15 @@
         border-radius: 20px; /* Optional: Add border-radius for rounded corners */
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
     }
+    iframe {
+        border: 5px solid #ddd; /* Giảm độ dày của viền iframe */
+    }
+   .red-text {
+    color:  rgb(195, 0, 0); /* Màu đỏ đậm */
+;       /* Đặt màu chữ thành đỏ */
+    font-weight: bold; /* Đặt chữ thành đậm */
+   }
+
 </style>
 
 <!--end of menu-->
