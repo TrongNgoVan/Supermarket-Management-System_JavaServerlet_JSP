@@ -10,6 +10,7 @@ package Entity726;
 public class NhaCungCap726 {
     private String id;
     private String ten;
+    private String maNCC;
     private String diaChi;
     private String mota;
     
@@ -25,5 +26,8 @@ public class NhaCungCap726 {
     
     public String getMota() { return mota; }
     public void setMota(String mota) { this.mota = mota; }
+    
+    public String getMaNCC() { return maNCC; }
+    public void setMaNCC(String maNCC) { this.maNCC = maNCC; }
 }
 
