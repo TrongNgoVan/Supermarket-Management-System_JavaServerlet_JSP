@@ -4,7 +4,7 @@
 
 <nav class="navbar navbar-expand-md navbar-dark navbar-custom">
     <div class="container">
-        <a class="navbar-brand" href="home"><i class="fa fa-home mr-2"></i>Siêu Thị PTIT</a>
+        <a class="navbar-brand" href="Trangchu726.jsp"><i class="fa fa-home mr-2"></i>Siêu Thị PTIT</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -28,6 +28,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="GDDangNhap726.jsp">Đăng nhập</a>
                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="GDDangky726.jsp">Đăng ký</a>
+                    </li>
+                    
                 </c:if>
             </ul>
 
@@ -37,6 +41,16 @@
 </nav>
 
 <style>
+    .navbar-brand {
+        font-size: 24px; /* Kích thước chữ cho "Siêu Thị PTIT" */
+        font-weight: bold; /* Làm chữ đậm */
+    }
+
+    .navbar-brand i {
+        font-size: 28px; /* Kích thước cho biểu tượng */
+        margin-right: 5px; /* Khoảng cách giữa biểu tượng và văn bản */
+    }
+
     /* Tùy chỉnh màu đỏ đậm cho menu */
     .navbar-custom {
         background-color: rgb(175, 0, 0); /* Màu đỏ đậm */
@@ -44,13 +58,15 @@
     }
 
     .navbar-nav .nav-link {
-        color: #ffffff; /* Màu chữ trắng cho các liên kết */
-        transition: color 0.3s; /* Hiệu ứng chuyển màu */
-    }
+         font-size: 18px; /* Kích thước chữ */
+         color: white !important; /* Màu chữ trắng */
+         font-weight: bold; /* Làm chữ đậm */
+     }
 
     .navbar-nav .nav-link:hover {
-        color: #FFD700; /* Màu vàng khi hover */
+        color: blue !important; /* Màu chữ khi di chuột là màu xanh dương */
     }
+
 </style>
 
 <section class="jumbotron text-center">

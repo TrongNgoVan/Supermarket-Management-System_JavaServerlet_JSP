@@ -15,26 +15,26 @@
         
         <style>
             /* Đổi màu tiêu đề và các nút */
-            .form-signin h1, .form-signup h1 {
-                color: #dc3545; /* Màu đỏ */
+            .form-signin h1 {
+                color: rgb(195, 0, 0); /* Màu đỏ đậm */
                 font-size: 2rem;
                 font-weight: bold;
             }
             .text-danger-custom {
-                color: #dc3545 !important;
+                color: rgb(195, 0, 0) !important; /* Màu đỏ đậm */
                 font-size: 1.25rem;
                 font-weight: bold;
             }
             .btn-custom-red {
-                background-color: #dc3545;
-                border-color: #dc3545;
+                background-color: rgb(195, 0, 0); /* Màu đỏ đậm */
+                border-color: rgb(195, 0, 0); /* Màu đỏ đậm */
                 color: #ffffff;
                 font-weight: bold;
                 font-size: 1rem;
             }
             .btn-custom-red:hover {
-                background-color: #c82333;
-                border-color: #bd2130;
+                background-color: rgb(160, 0, 0); /* Màu đỏ đậm hơn khi hover */
+                border-color: rgb(140, 0, 0); /* Màu đỏ đậm hơn khi hover */
             }
             /* Căn giữa nội dung */
             #logreg-forms {
@@ -42,6 +42,7 @@
                 margin: auto;
             }
         </style>
+
     </head>
 
     <body>
@@ -60,37 +61,22 @@
 
                 <button class="btn btn-custom-red btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Đăng nhập</button>
                 <hr>
-                <button class="btn btn-primary  btn-block" type="button" id="btn-signup"><i class="fas fa-user-plus"></i> Đăng ký</button>
-                <a class="navbar-brand" href="Trangchu726.jsp">Trở về trang chủ</a>
+                <button class="btn btn-primary btn-block" type="button" onclick="window.location.href='GDDangky726.jsp'">
+                                              <i class="fas fa-user-plus"></i> Đăng ký
+                </button>
+
+                <a href="Trangchu726.jsp"><i class="fas fa-angle-left"></i> Trở về trang chủ</a>
             </form>
 
-            <!-- Form đăng ký -->
-            <form action="signup" method="post" class="form-signup">
-                <h1 class="h3 mb-3 font-weight-normal text-danger-custom" style="text-align: center">Đăng ký</h1>
-                <input name="user" type="text" id="user-name" class="form-control" placeholder="Tên đăng nhập" required autofocus>
-                <input name="pass" type="password" id="user-pass" class="form-control" placeholder="Mật khẩu" required autofocus>
-                <input name="repass" type="password" id="user-repeatpass" class="form-control" placeholder="Nhập lại mật khẩu" required autofocus>
-                
-                <button class="btn btn-custom-red btn-block" type="submit"><i class="fas fa-user-plus"></i> Đăng ký</button>
-                <a href="#" id="cancel_signup"><i class="fas fa-angle-left"></i> Quay lại</a>
-            </form>
+           
+            
         </div>
 
         <!-- Các thư viện JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
         
-        <!-- Script để chuyển đổi form -->
-        <script>
-            function toggleSignUp(e) {
-                e.preventDefault();
-                $('#logreg-forms .form-signin').toggle(); // display:block hoặc none
-                $('#logreg-forms .form-signup').toggle(); // display:block hoặc none
-            }
-            $(document).ready(() => {
-                $('#btn-signup').click(toggleSignUp);
-                $('#cancel_signup').click(toggleSignUp);
-            });
-        </script>
+        
+      
     </body>
 </html>
