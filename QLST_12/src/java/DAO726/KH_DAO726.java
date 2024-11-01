@@ -68,7 +68,7 @@ public class KH_DAO726 {
         }
     }
     
-   public KhachHang_726 checkLogin(String userId, String password) {
+  public KhachHang_726 checkLogin(String userId, String password) {
     String sql = "SELECT * FROM khachhang_726 WHERE maKH = ? AND password = ?";
     try (PreparedStatement ps = con.prepareStatement(sql)) {
         ps.setString(1, userId);
@@ -78,10 +78,15 @@ public class KH_DAO726 {
         if (rs.next()) {
             // Nếu có kết quả trả về thì tạo đối tượng KhachHang_726
             KhachHang_726 khachHang = new KhachHang_726();
-            khachHang.setMaKH(rs.getString("maKH"));
-            khachHang.setPassword(rs.getString("password"));
-            // Thêm các thuộc tính khác nếu cần
-            
+            khachHang.setId(rs.getInt("id")); // Gán ID
+            khachHang.setHoTen(rs.getString("hoTen")); // Gán họ tên
+            khachHang.setSdt(rs.getString("sdt")); // Gán số điện thoại
+            khachHang.setEmail(rs.getString("email")); // Gán địa chỉ email
+            khachHang.setNgaySinh(rs.getDate("ngaySinh")); // Gán ngày sinh
+            khachHang.setPassword(rs.getString("password")); // Gán mật khẩu
+            khachHang.setMaKH(rs.getString("maKH")); // Gán mã khách hàng
+            khachHang.setSieuthiId(rs.getInt("sieuThi_Id")); // Gán ID siêu thị (nếu có)
+
             return khachHang; // Trả về đối tượng người dùng
         }
     } catch (SQLException e) {
@@ -89,6 +94,7 @@ public class KH_DAO726 {
     }
     return null; // Nếu không tìm thấy hoặc có lỗi, trả về null
 }
+
 
 
 

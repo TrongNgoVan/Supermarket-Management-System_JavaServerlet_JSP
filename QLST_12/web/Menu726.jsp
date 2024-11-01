@@ -13,23 +13,23 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
             <ul class="navbar-nav m-auto">
                 
-                <c:if test="${session.user != null}">
+                <c:if test="${sessionScope.user != null}">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Hello ${session.user.hoTen}</a>
+                        <a class="nav-link" href="#">Hello ${sessionScope.user.hoTen}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout">Đăng xuất</a>
-                    </li> 
+                    </li>
                 </c:if>
-                <c:if test="${session.user == null}">
+                <c:if test="${sessionScope.user == null}">
                     <li class="nav-item">
                         <a class="nav-link" href="GDDangNhap726.jsp">Đăng nhập</a>
                     </li>
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="GDDangky726.jsp">Đăng ký</a>
                     </li>
-                    
                 </c:if>
+
             </ul>
 
             
