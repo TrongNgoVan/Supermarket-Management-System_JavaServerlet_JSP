@@ -18,7 +18,7 @@
                         <a class="nav-link" href="#">Hello ${sessionScope.user.hoTen}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="logout">Đăng xuất</a>
+                       <a class="nav-link" href="Dangxuat726.jsp">Đăng xuất</a>
                     </li>
                 </c:if>
                 <c:if test="${sessionScope.user == null}">
@@ -31,14 +31,14 @@
                 </c:if>
 
             </ul>
-
-            
         </div>
     </div>
 </nav>
 
+
+
 <style>
-        .navbar-brand {
+    .navbar-brand {
         font-size: 24px; /* Kích thước chữ cho "Siêu Thị PTIT" */
         font-weight: bold; /* Làm chữ đậm */
     }
@@ -51,19 +51,17 @@
     /* Tùy chỉnh màu đỏ đậm cho menu */
     .navbar-custom {
         background-color: rgb(175, 0, 0); /* Màu đỏ đậm */
-       
     }
 
     .navbar-nav .nav-link {
-         font-size: 18px; /* Kích thước chữ */
-         color: white !important; /* Màu chữ trắng */
-         font-weight: bold; /* Làm chữ đậm */
-     }
+        font-size: 18px; /* Kích thước chữ */
+        color: white !important; /* Màu chữ trắng */
+        font-weight: bold; /* Làm chữ đậm */
+    }
 
     .navbar-nav .nav-link:hover {
         color: blue !important; /* Màu chữ khi di chuột là màu xanh dương */
     }
-
 </style>
 
 <section class="jumbotron text-center">
@@ -83,14 +81,13 @@
     </div>
 </section>
 
-
 <style>
     .jumbotron {
-    background-image: url('image/ptitnen.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #000000;  
-}
+        background-image: url('image/ptitnen.jpg');
+        background-size: cover;
+        background-position: center;
+        color: #000000;  
+    }
 
     .map-container {
         position: relative;
@@ -100,9 +97,10 @@
         margin: 20px 0;  
     }
 
-     .logo-container {
+    .logo-container {
         margin-right: 20px;
     }
+
     .logo-container img {
         max-width: 100%;
         height: auto;
@@ -117,15 +115,16 @@
         border-radius: 20px; /* Optional: Add border-radius for rounded corners */
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
     }
+
     iframe {
         border: 5px solid #ddd; /* Giảm độ dày của viền iframe */
     }
-   .red-text {
-    color:  rgb(195, 0, 0); /* Màu đỏ đậm */
-;       /* Đặt màu chữ thành đỏ */
-    font-weight: bold; /* Đặt chữ thành đậm */
-   }
 
+    .red-text {
+        color: rgb(195, 0, 0); /* Màu đỏ đậm */
+        /* Đặt màu chữ thành đỏ */
+        font-weight: bold; /* Đặt chữ thành đậm */
+    }
 </style>
 
 <!--end of menu-->
