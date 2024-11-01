@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="javax.servlet.http.HttpSession"%>
 <!--begin of menu-->
 
 <nav class="navbar navbar-expand-md navbar-dark navbar-custom">
@@ -11,20 +12,16 @@
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
             <ul class="navbar-nav m-auto">
-                <c:if test="${sessionScope.acc.isAdmin == 1}">
+                
+                <c:if test="${session.user != null}">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Xem Báo Cáo</a>
-                    </li>
-                </c:if>
-                <c:if test="${sessionScope.acc != null}">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Hello ${sessionScope.acc.user}</a>
+                        <a class="nav-link" href="#">Hello ${session.user.hoTen}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout">Đăng xuất</a>
                     </li> 
                 </c:if>
-                <c:if test="${sessionScope.acc == null}">
+                <c:if test="${session.user == null}">
                     <li class="nav-item">
                         <a class="nav-link" href="GDDangNhap726.jsp">Đăng nhập</a>
                     </li>
@@ -41,7 +38,7 @@
 </nav>
 
 <style>
-    .navbar-brand {
+        .navbar-brand {
         font-size: 24px; /* Kích thước chữ cho "Siêu Thị PTIT" */
         font-weight: bold; /* Làm chữ đậm */
     }

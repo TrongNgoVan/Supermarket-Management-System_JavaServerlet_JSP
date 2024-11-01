@@ -12,7 +12,7 @@ package Entity726;
 import java.sql.Date;
 
 public class KhachHang_726 {
-    private String id;
+    private int id;
     private String hoTen;
     private String sdt;
     private String email;  
@@ -23,7 +23,7 @@ public class KhachHang_726 {
 
     public KhachHang_726() {}
 
-    public KhachHang_726(String id, String hoTen, String sdt, String email, Date ngaySinh, String password, String maKH, int sieuthiId) {
+    public KhachHang_726(int id, String hoTen, String sdt, String email, Date ngaySinh, String password, String maKH, int sieuthiId) {
         this.id = id;
         this.hoTen = hoTen;
         this.sdt = sdt;
@@ -34,8 +34,8 @@ public class KhachHang_726 {
         this.sieuthiId = sieuthiId;
     }
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
     public String getHoTen() { return hoTen; }
     public void setHoTen(String hoTen) { this.hoTen = hoTen; }
@@ -53,7 +53,7 @@ public class KhachHang_726 {
     public void setNgaySinh(Date ngaySinh) { this.ngaySinh = ngaySinh; }
 
     public String getMaKH() { return maKH; }
-    public void setMaNV(String maNV) { this.maKH = maKH; }
+    public void setMaKH(String maKH) { this.maKH = maKH; }
 
 
 
