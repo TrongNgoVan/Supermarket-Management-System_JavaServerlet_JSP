@@ -13,15 +13,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
 </head>
-<style>
-    .product .card {
-        margin-bottom: 20px;
-    }
-    .product .card-img-top {
-        object-fit: cover;
-        height: 200px;
-    }
-</style>
+
 
 <body>
 

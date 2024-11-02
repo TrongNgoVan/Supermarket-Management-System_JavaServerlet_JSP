@@ -59,7 +59,7 @@
 
         // Thực hiện kiểm tra đăng nhập
         try {
-            if(role == "Khách hàng"){
+            if(role.equals("khachhang")){
                 KH_DAO726 khDao = new KH_DAO726(); // Khởi tạo đối tượng DAO
                 KhachHang_726 khachHang = khDao.checkLogin(userId, password); // Kiểm tra đăng nhập và lấy đối tượng KhachHang_726
 
@@ -89,7 +89,7 @@
                     return; // Kết thúc trang để tránh hiển thị thêm nội dung
                 } else {
                     // Đăng nhập thất bại
-                    error = "Mã khách hàng hoặc mật khẩu không đúng.";
+                    error = "Mã nhân viên hoặc mật khẩu không đúng.";
                 }
             }
         } catch (ClassNotFoundException e) {

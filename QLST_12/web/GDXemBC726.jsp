@@ -1,9 +1,3 @@
-<%-- 
-    Document   : Trọng, Ngọ Văn
-    Created on : Nov 2, 2024, 4:54:43 PM
-    Author     : Ngọ Văn Trọng
---%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,8 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Xem Báo Cáo</title> 
     <link rel="icon" href="image/logo.png" type="image/x-icon">
-    </head>
-            <style>
+    <style>
                 body {
                    font-family: Arial, sans-serif;
                    background-color: #f5f5f5;
@@ -93,34 +86,72 @@
                .btn:hover {
                    background-color: #b00000;
                }
-               </style>
-    </head>
-    <body>
+        </style>
+</head>
+<body>
+    <jsp:include page="Header726.jsp"></jsp:include>
 
-            <div class="header">
-                <div class="manager-label">Quản Lý ${sessionScope.user.hoTen}</div>
-                   <a href="GDQL726.jsp" class="back-button">Quay lại</a>
+    <div class="header">
+        <div class="manager-label">Quản Lý ${sessionScope.user.hoTen}</div>
+        <a href="GDQL726.jsp" class="back-button">Quay lại</a>
+    </div>
+
+    <div class="content">
+        <div class="date-picker-container">
+            <div>
+                <label class="date-picker-label" for="start-date">Chọn ngày bắt đầu</label>
+                <input type="date" id="start-date" class="date-picker">
             </div>
-
-            <div class="content">
-                <div class="date-picker-container">
-                    <div>
-                        <label class="date-picker-label" for="start-date">Chọn ngày bắt đầu</label>
-                        <input type="date" id="start-date" class="date-picker">
-                    </div>
-                    <div>
-                        <label class="date-picker-label" for="end-date">Chọn ngày kết thúc</label>
-                        <input type="date" id="end-date" class="date-picker">
-                    </div>
-                </div>
-
-                <div class="btn-container">
-                     <a href="GDTKKH726.jsp" class="btn">Thống kê khách hàng theo doanh thu</a>
-                     <a href="#" class="btn">Thống kê nhà cung cấp theo số lần nhập</a>
-                     <a href="#" class="btn">Thống kê mặt hàng theo doanh thu</a>
-                </div>
+            <div>
+                <label class="date-picker-label" for="end-date">Chọn ngày kết thúc</label>
+                <input type="date" id="end-date" class="date-picker">
             </div>
+        </div>
 
-    </body>
+        <div class="btn-container">
+            <!-- Sử dụng form để gửi ngày bắt đầu và kết thúc -->
+            <form action="GDTKKH726.jsp" method="get" onsubmit="return validateDates()">
+                <input type="hidden" name="start-date" id="start-date-field">
+                <input type="hidden" name="end-date" id="end-date-field">
+                <button type="submit" class="btn">Thống kê khách hàng theo doanh thu</button>
+            </form>
+            <form action="GDTKKH726.jsp" method="get" onsubmit="return validateDates()">
+                <input type="hidden" name="start-date" id="start-date-field">
+                <input type="hidden" name="end-date" id="end-date-field">
+                <button type="submit" class="btn">Thống kê mặt hàng theo doanh thu</button>
+            </form>
+            <form action="GDTKKH726.jsp" method="get" onsubmit="return validateDates()">
+                <input type="hidden" name="start-date" id="start-date-field">
+                <input type="hidden" name="end-date" id="end-date-field">
+                <button type="submit" class="btn">Thống kê nhà cung cấp theo số lần nhập</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function validateDates() {
+            // Lấy giá trị ngày bắt đầu và ngày kết thúc
+            const startDate = document.getElementById("start-date").value;
+            const endDate = document.getElementById("end-date").value;
+
+            // Kiểm tra nếu người dùng chưa chọn ngày
+            if (!startDate || !endDate) {
+                alert("Vui lòng chọn ngày bắt đầu và ngày kết thúc.");
+                return false;
+            }
+
+            // Kiểm tra nếu ngày kết thúc nhỏ hơn ngày bắt đầu
+            if (new Date(endDate) < new Date(startDate)) {
+                alert("Ngày kết thúc không thể nhỏ hơn ngày bắt đầu.");
+                return false;
+            }
+
+            // Đặt giá trị của các trường ẩn
+            document.getElementById("start-date-field").value = startDate;
+            document.getElementById("end-date-field").value = endDate;
+
+            return true; // Cho phép submit form nếu các điều kiện hợp lệ
+        }
+    </script>
+</body>
 </html>
-
