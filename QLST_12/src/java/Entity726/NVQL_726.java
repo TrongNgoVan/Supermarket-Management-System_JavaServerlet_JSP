@@ -12,7 +12,7 @@ package Entity726;
 import java.sql.Date;
 
 public class NVQL_726 {
-    private String id;
+    private int id;
     private String hoTen;
     private String sdt;
     private String email;
@@ -24,7 +24,7 @@ public class NVQL_726 {
 
     public NVQL_726() {}
 
-    public NVQL_726(String id, String hoTen, String sdt, String email, String password, Date ngaySinh, String maNV, String chucVu, int sieuThiId) {
+    public NVQL_726(int id, String hoTen, String sdt, String email, String password, Date ngaySinh, String maNV, String chucVu, int sieuThiId) {
         this.id = id;
         this.hoTen = hoTen;
         this.sdt = sdt;
@@ -36,8 +36,8 @@ public class NVQL_726 {
         this.sieuThiId = sieuThiId;
     }
 
-   public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+   public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
     public String getHoTen() { return hoTen; }
     public void setHoTen(String hoTen) { this.hoTen = hoTen; }

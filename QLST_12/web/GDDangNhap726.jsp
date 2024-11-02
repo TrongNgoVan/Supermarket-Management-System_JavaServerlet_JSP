@@ -1,8 +1,9 @@
+<%@page import="Entity726.NVQL_726"%>
+<%@page import="DAO726.NVQL_DAO726"%>
 <%@page import="Entity726.KhachHang_726"%>
 <%@page import="DAO726.KH_DAO726"%>
 <%@page import="DAO726.DAO726"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@page import="javax.servlet.http.HttpSession"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,23 +55,42 @@
     if (request.getParameter("user") != null) {
         String userId = request.getParameter("user");
         String password = request.getParameter("pass");
+        String role = request.getParameter("role");
 
         // Thực hiện kiểm tra đăng nhập
         try {
-            KH_DAO726 khDao = new KH_DAO726(); // Khởi tạo đối tượng DAO
-            KhachHang_726 khachHang = khDao.checkLogin(userId, password); // Kiểm tra đăng nhập và lấy đối tượng KhachHang_726
+            if(role == "Khách hàng"){
+                KH_DAO726 khDao = new KH_DAO726(); // Khởi tạo đối tượng DAO
+                KhachHang_726 khachHang = khDao.checkLogin(userId, password); // Kiểm tra đăng nhập và lấy đối tượng KhachHang_726
 
-            if (khachHang != null) {
-                // Đăng nhập thành công
-                message = "Đăng nhập thành công!";
-            
-                session.setAttribute("user", khachHang); // Lưu đối tượng KhachHang_726 vào session
+                if (khachHang != null) {
+                    // Đăng nhập thành công
+                    message = "Đăng nhập thành công!";
 
-                response.sendRedirect("Trangchu726.jsp"); // Chuyển hướng đến trang chính
-                return; // Kết thúc trang để tránh hiển thị thêm nội dung
-            } else {
-                // Đăng nhập thất bại
-                error = "Mã khách hàng hoặc mật khẩu không đúng.";
+                    session.setAttribute("user", khachHang); // Lưu đối tượng KhachHang_726 vào session
+
+                    response.sendRedirect("Trangchu726.jsp"); // Chuyển hướng đến trang chính
+                    return; // Kết thúc trang để tránh hiển thị thêm nội dung
+                } else {
+                    // Đăng nhập thất bại
+                    error = "Mã khách hàng hoặc mật khẩu không đúng.";
+                }
+          }else{
+                NVQL_DAO726 qldao = new NVQL_DAO726(); // Khởi tạo đối tượng DAO
+                NVQL_726 ql = qldao.checkLogin(userId, password); // Kiểm tra đăng nhập và lấy đối tượng KhachHang_726
+
+                if (ql != null) {
+                    // Đăng nhập thành công
+                    message = "Đăng nhập thành công!";
+
+                    session.setAttribute("user", ql); // Lưu đối tượng KhachHang_726 vào session
+
+                    response.sendRedirect("GDQL726.jsp"); // Chuyển hướng đến trang chính
+                    return; // Kết thúc trang để tránh hiển thị thêm nội dung
+                } else {
+                    // Đăng nhập thất bại
+                    error = "Mã khách hàng hoặc mật khẩu không đúng.";
+                }
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -97,6 +117,13 @@
             </div>
 
             <button class="btn btn-custom-red btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Đăng nhập</button>
+            <div class="form-group">
+                <label for="loginRole">Đăng nhập với tư cách:</label>
+                <select name="role" id="loginRole" class="form-control">
+                    <option value="khachhang">Khách hàng</option>
+                    <option value="nhanvien">Nhân viên</option>
+                </select>
+            </div>
             <hr>
             <button class="btn btn-primary btn-block" type="button" onclick="window.location.href='GDDangky726.jsp'">
                 <i class="fas fa-user-plus"></i> Đăng ký
