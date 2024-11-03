@@ -1,17 +1,91 @@
-<%-- 
-    Document   : Trọng, Ngọ Văn
-    Created on : Nov 2, 2024, 5:22:46 PM
-    Author     : Ngọ Văn Trọng
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Thống Kê Khách Hàng</title>    
+    <link rel="icon" href="image/logo.png" type="image/x-icon">
+    <style>
+        body {
+           font-family: Arial, sans-serif;
+           background-color: #f5f5f5;
+           margin: 0;
+           padding: 0;
+       }
+       .back-button {
+           position: absolute;
+           top: 50%;
+           right: 20px;
+           transform: translateY(-50%);
+           background-color: #c50000;
+           color: white;
+           font-size: 16px;
+           padding: 10px 20px;
+           border: none;
+           border-radius: 15px;
+           cursor: pointer;
+           text-decoration: none;
+       }
+       .back-button:hover {
+           background-color: #b00000;
+       }
+       .header {
+           background-color: #c50000;
+           padding: 20px;
+           text-align: center;
+           color: white;
+       }
+       .header .manager-label {
+           font-size: 24px;
+           font-weight: bold;
+           border-radius: 15px;
+           background-color: #e74c3c;
+           padding: 10px 20px;
+           display: inline-block;
+       }
+       .report-container {
+           text-align: center;
+           margin: 20px auto;
+           max-width: 600px;
+       }
+       .report-label {
+           background-color: #c50000;
+           color: white;
+           padding: 15px;
+           border-radius: 10px;
+           margin-bottom: 10px;
+           font-size: 18px;
+       }
+       .report-title {
+           font-size: 24px;
+           font-weight: bold;
+       }
+       .date-container {
+           display: flex;
+           justify-content: space-between;
+           gap: 20px;
+       }
+       .date-label {
+           flex: 1;
+       }
+    </style>
+</head>
+
+<body>
+    <jsp:include page="Header726.jsp"></jsp:include>
+    <div class="header">
+        <div class="manager-label">Quản Lý ${sessionScope.user.hoTen}</div>
+        <a href="GDXemBC726.jsp" class="back-button">Quay lại</a>
+    </div>
+    <div class="report-container">
+        <!-- Tiêu đề báo cáo -->
+        <div class="report-label report-title">Thống Kê Khách Hàng Theo Doanh Thu</div>
+        
+        <div class="date-container">
+            <div class="report-label date-label">Ngày bắt đầu: ${param['start-date']}</div>
+            <div class="report-label date-label">Ngày kết thúc: ${param['end-date']}</div>
+        </div>
+    </div>
+   
+</body>
 </html>

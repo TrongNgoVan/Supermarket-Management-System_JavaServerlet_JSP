@@ -129,7 +129,7 @@
         <input name="username" type="text" class="form-control" placeholder="Họ tên" required autofocus>
         <input name="sdt" type="text" class="form-control" placeholder="Số điện thoại" required>
         <input name="email" type="text" class="form-control" placeholder="Email" required>
-        <input name="dob" type="date" class="form-control" placeholder="Ngày sinh" required>
+        <input name="dob" type="text" class="form-control" placeholder="Ngày sinh" required>
         <input name="pass" type="password" class="form-control" placeholder="Mật khẩu" required>
         <input name="repass" type="password" class="form-control" placeholder="Nhập lại mật khẩu" required>
 

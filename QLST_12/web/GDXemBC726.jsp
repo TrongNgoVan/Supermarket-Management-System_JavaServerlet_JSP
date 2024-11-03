@@ -68,11 +68,14 @@
                    border-radius: 5px;
                    border: 1px solid #ccc;
                }
-               .btn-container {
-                  margin-top: 100px; /* Thêm khoảng cách giữa các nút thống kê và chọn ngày */
+                .btn-container {
+                    display: flex;
+                    justify-content: center;
+                    gap: 20px; /* khoảng cách giữa các nút */
+                    margin-top: 40px;
                 }
                .btn {
-                   font-size: 16px;
+                   font-size: 18px;
                    color: white;
                    background-color: #c50000;
                    padding: 15px 30px;
