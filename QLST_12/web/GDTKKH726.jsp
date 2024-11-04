@@ -1,4 +1,7 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ page import="java.util.List" %>
+<%@ page import="DAO726.TKKH_DAO726" %>
+<%@ page import="Entity726.TKKH726" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,6 +71,26 @@
        .date-label {
            flex: 1;
        }
+       .statistics-container {
+           margin-top: 20px;
+           padding: 10px;
+           background-color: #ffffff;
+           border-radius: 10px;
+           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+       }
+       .statistics-table {
+           width: 100%;
+           border-collapse: collapse;
+       }
+       .statistics-table th, .statistics-table td {
+           padding: 8px;
+           text-align: left;
+           border-bottom: 1px solid #ddd;
+       }
+       .statistics-table th {
+           background-color: #c50000;
+           color: white;
+       }
     </style>
 </head>
 
@@ -85,7 +108,55 @@
             <div class="report-label date-label">Ngày bắt đầu: ${param['start-date']}</div>
             <div class="report-label date-label">Ngày kết thúc: ${param['end-date']}</div>
         </div>
+
+        <%
+            // Lấy ngày bắt đầu và ngày kết thúc từ tham số
+            String startDate = request.getParameter("start-date");
+            String endDate = request.getParameter("end-date");
+
+            // Khởi tạo lớp DAO và lấy thống kê khách hàng
+            TKKH_DAO726 tkkhdao = new TKKH_DAO726();
+          
+          
+            List<TKKH726> dstk = tkkhdao.getTKKH(startDate, endDate);
+        %>
+
+        <!-- Hiển thị thống kê khách hàng -->
+        <div class="statistics-container">
+            <table class="statistics-table">
+                <thead>
+                    <tr>
+                        <th>ID Khách Hàng</th>
+                        <th>Mã Khách Hàng</th>
+                        <th>Tên Khách Hàng</th>
+                        <th>Tổng Doanh Thu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                        // Kiểm tra và hiển thị thống kê
+                        if (dstk != null && ! dstk.isEmpty()) {
+                            for ( TKKH726 tkkh : dstk) {
+                    %>
+                    <tr>
+                        <td><%=tkkh.getId() %></td>
+                        <td><%= tkkh.getMaKH() %></td>
+                        <td><%= tkkh.getHoTen() %></td>
+                        <td><%= tkkh.getTongDT() %></td>
+                    </tr>
+                    <%
+                            }
+                        } else {
+                    %>
+                    <tr>
+                        <td colspan="3">Không có dữ liệu thống kê cho khoảng thời gian này.</td>
+                    </tr>
+                    <%
+                        }
+                    %>
+                </tbody>
+            </table>
+        </div>
     </div>
-   
 </body>
 </html>
