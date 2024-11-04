@@ -20,7 +20,8 @@ Hệ thống quản lý siêu thị - Module Đăng ký thành viên và Thống
 
 ![image](https://github.com/user-attachments/assets/4d07b975-a452-48d6-bd48-2d96e1930265)
 
-![image](https://github.com/user-attachments/assets/46ce02e9-0049-416f-843e-89f39818ddb7)
+![image](https://github.com/user-attachments/assets/115c1eee-2e52-454d-a420-3d178dcc0e10)
+
 
 
 
