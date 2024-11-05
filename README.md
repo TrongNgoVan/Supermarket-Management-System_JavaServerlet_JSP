@@ -22,6 +22,9 @@ Hệ thống quản lý siêu thị - Module Đăng ký thành viên và Thống
 
 ![image](https://github.com/user-attachments/assets/115c1eee-2e52-454d-a420-3d178dcc0e10)
 
+### Quản lý xem danh sách hóa đơn của khách hàng.
+![image](https://github.com/user-attachments/assets/32adb9e1-b3f9-4143-b53e-602a6cc72a95)
+
 
 
 
