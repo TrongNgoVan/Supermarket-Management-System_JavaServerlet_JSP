@@ -3,8 +3,11 @@ package DAO726;
 import Entity726.TKKH726;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,22 +33,31 @@ public class TKKH_DAO726 {
         String sql = "{CALL TKKH726(?, ?)}"; // Replace with your actual stored procedure name
 
         try (CallableStatement cstmt = con.prepareCall(sql)) {
-            cstmt.setString(1, nbd); // Set start date
-            cstmt.setString(2, nkt); // Set end date
+            // Convert String dates to java.sql.Date
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            Date startDate = new Date(format.parse(nbd).getTime());
+            Date endDate = new Date(format.parse(nkt).getTime());
+
+            // Set dates in the stored procedure call
+            cstmt.setDate(1, startDate);
+            cstmt.setDate(2, endDate);
 
             try (ResultSet rs = cstmt.executeQuery()) {
                 while (rs.next()) {
                     TKKH726 tkkh = new TKKH726();
-                    // Assuming your KhachHang_726 class has appropriate setters
                     tkkh.setId(rs.getInt("KhachHangID"));
                     tkkh.setMaKH(rs.getString("MaKhachHang")); 
                     tkkh.setHoTen(rs.getString("TenKhachHang"));
                     tkkh.setTongDT(rs.getDouble("TongDoanhThu")); 
-                    // Set other fields as necessary
+
+                    // Set ngayBatDau and ngayKetThuc fields
+                    tkkh.setNgayBatDau(startDate);
+                    tkkh.setNgayKetThuc(endDate);
+
                     ListTKKH.add(tkkh);
                 }
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ParseException e) {
             e.printStackTrace(); // Handle exceptions properly in production code
         }
 

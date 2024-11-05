@@ -15,17 +15,21 @@ public class HoaDonMua726 {
     private Date ngayMua;
     private String trangThai; // Trạng thái của hóa đơn (ví dụ: "Pending", "Completed")
     private double tongTien;
-    private KhachHang_726 kh; // Khách hàng
-    private List<HDMChitiet726> chiTiet; // Chi tiết các mặt hàng trong hóa đơn
+    private int maKH; // Khách hàng
+
 
     // Constructor, getter và setter
-    public HoaDonMua726(String id, Date ngayMua, String trangThai, double tongTien, KhachHang_726 kh, List<HDMChitiet726> chiTiet) {
+    public HoaDonMua726(String id, Date ngayMua, String trangThai, double tongTien, int kh) {
         this.id = id;
         this.ngayMua = ngayMua;
         this.trangThai = trangThai;
         this.tongTien = tongTien;
-        this.kh = kh;
-        this.chiTiet = chiTiet;
+        this.maKH =  kh;
+        
+    }
+
+    public HoaDonMua726() {
+       
     }
 
     public String getId() { return id; }
@@ -40,9 +44,8 @@ public class HoaDonMua726 {
     public double getTongTien() { return tongTien; }
     public void setTongTien(double tongTien) { this.tongTien = tongTien; }
 
-    public KhachHang_726 getKh() { return kh; }
-    public void setKh(KhachHang_726 kh) { this.kh = kh; }
+    public int getMaKH() { return maKH; }
+    public void setMaKH(int kh) { this.maKH = kh; }
 
-    public List<HDMChitiet726> getChiTiet() { return chiTiet; }
-    public void setChiTiet(List<HDMChitiet726> chiTiet) { this.chiTiet = chiTiet; }
+ 
 }
