@@ -125,6 +125,7 @@
             <div class="report-label date-label">Ngày kết thúc: <%= selectedKH.getNgayKetThuc() %></div>
         </div>
         <div class="report-label report-title">Khách hàng: <%= selectedKH.getHoTen() %></div>
+        <div class="report-label report-title"> Mã Khách Hàng: <%= selectedKH.getMaKH() %> </div>
 
         <!-- Hiển thị danh sách hóa đơn -->
         <div class="statistics-container">
@@ -167,3 +168,4 @@
     </div>
 </body>
 </html>
+  

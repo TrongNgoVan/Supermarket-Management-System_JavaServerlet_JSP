@@ -126,6 +126,7 @@
                 <table class="statistics-table">
                     <thead>
                         <tr>
+                            <th> STT </th>
                             <th>ID Khách Hàng</th>
                             <th>Mã Khách Hàng</th>
                             <th>Tên Khách Hàng</th>
@@ -136,16 +137,17 @@
                         <%
                             // Kiểm tra và hiển thị thống kê
                             if (dstk != null && ! dstk.isEmpty()) {
-                                for ( TKKH726 tkkh : dstk) {
+                                for ( int i = 0 ; i<= dstk.size()-1; i++) {
                         %>
                         <tr onclick="<% 
-                                session.setAttribute("ChonKH", tkkh); 
+                                session.setAttribute("ChonKH", dstk.get(i)); 
                                 %>window.location.href='GDListHD726.jsp'" 
                                             style="cursor:pointer;">
-                                <td><%= tkkh.getId() %></td>
-                                <td><%= tkkh.getMaKH() %></td>
-                                <td><%= tkkh.getHoTen() %></td>
-                                <td><%= tkkh.getTongDT() %></td>
+                            <td><%= i + 1 %></td>
+                            <td><%= dstk.get(i).getId() %></td>
+                                <td><%= dstk.get(i).getMaKH() %></td>
+                                <td><%= dstk.get(i).getHoTen() %></td>
+                                <td><%= dstk.get(i).getTongDT() %></td>
                         </tr>
 
                         <%
@@ -159,8 +161,11 @@
                             }
                         %>
                     </tbody>
+
+
                 </table>
             </div>
         </div>
     </body>
     </html>
+// Vấn đề lớn: Không trôi được đối tượng khách hàng sang nhỉ 
