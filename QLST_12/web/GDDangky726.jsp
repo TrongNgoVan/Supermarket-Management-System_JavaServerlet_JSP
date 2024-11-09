@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
     <link href="css/login.css" rel="stylesheet" type="text/css"/>
-    <link rel="icon" href="image/logo.png" type="image/x-icon">
+    <link rel="icon" href=" image/logo.png" type="image/x-icon">
     <title>Form Đăng ký</title>
     <style>
         .form-signup h1 {

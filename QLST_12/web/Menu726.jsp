@@ -31,7 +31,7 @@
                 </c:if>
 
             </ul>
-        </div>
+        </div>  
     </div>
 </nav>
 

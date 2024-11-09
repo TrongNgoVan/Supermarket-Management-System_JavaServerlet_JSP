@@ -14,18 +14,22 @@ public class HDTrucTiep726 {
     private String id;
     private Date ngayMua;
     private double tongTien;
-    private NVBH_726 nvBH; // Nhân viên bán hàng
-    private KhachHang_726 kh; // Khách hàng
-    private List<HDTTChitiet726> chiTiet; // Chi tiết các mặt hàng trong hóa đơn
+    private int maNVBH; // Nhân viên bán hàng
+    private int maKH; // Khách hàng
+
 
     // Constructor, getter và setter
-    public HDTrucTiep726(String id, Date ngayMua, double tongTien, NVBH_726 nvBH, KhachHang_726 kh, List<HDTTChitiet726> chiTiet) {
+    
+    public HDTrucTiep726() {
+       
+    }
+    public HDTrucTiep726(String id, Date ngayMua, double tongTien, int maNVBH, int maKH) {
         this.id = id;
         this.ngayMua = ngayMua;
         this.tongTien = tongTien;
-        this.nvBH = nvBH;
-        this.kh = kh;
-        this.chiTiet = chiTiet;
+        this.maNVBH  = maNVBH;
+        this.maKH = maKH;
+      
     }
 
     public String getId() { return id; }
@@ -36,14 +40,15 @@ public class HDTrucTiep726 {
 
     public double getTongTien() { return tongTien; }
     public void setTongTien(double tongTien) { this.tongTien = tongTien; }
+    
+    
+    public int getMaNVBH() { return maNVBH; }
+    public void setMaNVBH(int maNVBH) { this.maNVBH = maNVBH; }
+    
+    public int getMaKH() { return maKH; }
+    public void setMaKH(int maKH) { this.maKH = maKH; }
+  
 
-    public NVBH_726 getNvBH() { return nvBH; }
-    public void setNvBH(NVBH_726 nvBH) { this.nvBH = nvBH; }
-
-    public KhachHang_726 getKh() { return kh; }
-    public void setKh(KhachHang_726 kh) { this.kh = kh; }
-
-    public List<HDTTChitiet726> getChiTiet() { return chiTiet; }
-    public void setChiTiet(List<HDTTChitiet726> chiTiet) { this.chiTiet = chiTiet; }
+  
 }
 

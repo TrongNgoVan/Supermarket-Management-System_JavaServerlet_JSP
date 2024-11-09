@@ -5,6 +5,8 @@
 --%>
 
 
+<%@page import="Entity726.HDTrucTiep726"%>
+<%@page import="DAO726.HDTT_DAO726"%>
 <%@page import="Entity726.HoaDonMua726"%>
 <%@page import="DAO726.HoadonMua_DAO726"%>
 <!DOCTYPE html>
@@ -88,19 +90,57 @@
            border-radius: 10px;
            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
        }
-       .statistics-table {
-           width: 100%;
-           border-collapse: collapse;
-       }
-       .statistics-table th, .statistics-table td {
-           padding: 8px;
-           text-align: left;
-           border-bottom: 1px solid #ddd;
-       }
-       .statistics-table th {
-           background-color: #c50000;
-           color: white;
-       }
+        .statistics-table {
+        width: 100%;
+        border-collapse: collapse;
+        }
+        .statistics-table th, .statistics-table td {
+            padding: 16px 26px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .statistics-table th {
+            background-color: #c50000;
+            color: white;
+        }
+         .tables-container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 20px;
+    }
+    .table-wrapper {
+        flex: 1;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        max-width: 500px;
+    }
+        h2 {
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 20px;
+        color: #333;
+    }
+    .customer-info-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 20px;
+    }
+
+    .customer-info-container .report-label {
+        flex: 1;
+        background-color: #c50000;
+        color: white;
+        padding: 18px;
+        border-radius: 10px;
+        font-size: 22px;
+        font-weight: bold;
+        text-bold: center;
+    }
+
     </style>
 </head>
 
@@ -116,56 +156,90 @@
             TKKH726 selectedKH = (TKKH726) session.getAttribute("ChonKH");
             HoadonMua_DAO726 hdmdao = new HoadonMua_DAO726();
             List<HoaDonMua726> dshd = hdmdao.getHDM(selectedKH.getId(), selectedKH.getNgayBatDau(), selectedKH.getNgayKetThuc());
+        
+            HDTT_DAO726 hdttdao = new HDTT_DAO726();
+            List<HDTrucTiep726> dshdtt = hdttdao.getHDTT(selectedKH.getId(), selectedKH.getNgayBatDau(), selectedKH.getNgayKetThuc());
         %>
         <!-- Tiêu đề báo cáo -->
-        <div class="report-label report-title">Danh sách các hóa đơn</div>
+     
         
         <div class="date-container">
             <div class="report-label date-label">Ngày bắt đầu: <%= selectedKH.getNgayBatDau() %></div>
             <div class="report-label date-label">Ngày kết thúc: <%= selectedKH.getNgayKetThuc() %></div>
         </div>
-        <div class="report-label report-title">Khách hàng: <%= selectedKH.getHoTen() %></div>
-        <div class="report-label report-title"> Mã Khách Hàng: <%= selectedKH.getMaKH() %> </div>
+         <div class="customer-info-container">
+            <div class="report-label">Khách hàng: <%= selectedKH.getHoTen() %></div>
+            <div class="report-label">Mã Khách Hàng: <%= selectedKH.getMaKH() %></div>
+         </div>
 
         <!-- Hiển thị danh sách hóa đơn -->
-        <div class="statistics-container">
-            <table class="statistics-table">
-                <thead>
-                    <tr>
-                        <th>Mã Hóa Đơn</th>
-                        <th>Ngày Mua</th>
-                        <th>Trạng Thái</th>
-                        <th>Tổng Tiền</th>
-                        <th>ID Khách Hàng</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%
-                        // Duyệt qua danh sách hóa đơn và hiển thị
-                        if (dshd != null && !dshd.isEmpty()) {
-                            for (HoaDonMua726 hdm : dshd) {
-                    %>
-                    <tr>
-                        <td><%= hdm.getId() %></td>
-                        <td><%= hdm.getNgayMua() %></td>
-                        <td><%= hdm.getTrangThai() %></td>
-                        <td><%= hdm.getTongTien() %></td>
-                        <td><%= hdm.getMaKH() %></td>
-                    </tr>
-                    <%
-                            }
-                        } else {
-                    %>
-                    <tr>
-                        <td colspan="5">Không có hóa đơn cho khách hàng này trong khoảng thời gian đã chọn.</td>
-                    </tr>
-                    <%
-                        }
-                    %>
-                </tbody>
-            </table>
-        </div>
+        <div class="tables-container">
+    <!-- Bảng danh sách hóa đơn Online -->
+    <div class="table-wrapper">
+        <h2>Danh sách Hóa đơn Online</h2>
+        <table class="statistics-table">
+            <thead>
+                <tr>
+                    <th>Mã Hóa Đơn</th>
+                    <th>Ngày Mua</th>
+                    <th>Trạng Thái</th>
+                    <th>Tổng Tiền</th>
+                    <th>Mã KH</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (dshd != null && !dshd.isEmpty()) {
+                    for (HoaDonMua726 hdm : dshd) { %>
+                <tr>
+                    <td><%= hdm.getId() %></td>
+                    <td><%= hdm.getNgayMua() %></td>
+                    <td><%= hdm.getTrangThai() %></td>
+                    <td><%= hdm.getTongTien() %></td>
+                    <td><%= hdm.getMaKH() %></td>
+                </tr>
+                <% } } else { %>
+                <tr>
+                    <td colspan="5">Không có hóa đơn Online cho khách hàng này trong khoảng thời gian đã chọn.</td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
     </div>
+
+    <!-- Bảng danh sách hóa đơn Trực tiếp -->
+    <div class="table-wrapper">
+        <h2>Danh sách Hóa đơn Trực tiếp</h2>
+        <table class="statistics-table">
+            <thead>
+                <tr>
+                    <th>Mã Hóa Đơn</th>
+                    <th>Ngày Mua</th>
+                    <th>Tổng Tiền</th>
+                    <th>Mã KH</th>
+                    <th>Mã NVBH</th>
+                </tr>
+            </thead>
+            <tbody>
+               <tbody>
+                    <% if (dshdtt != null && !dshdtt.isEmpty()) {
+                        for ( HDTrucTiep726 hdtt : dshdtt) { %>
+                    <tr>
+                        <td><%= hdtt.getId() %></td>
+                        <td><%= hdtt.getNgayMua() %></td>                   
+                        <td><%= hdtt.getTongTien() %></td>
+                        <td><%= hdtt.getMaKH() %></td>
+                        <td><%= hdtt.getMaNVBH() %></td>
+                    </tr>
+                    <% } } else { %>
+                    <tr>
+                        <td colspan="5">Không có hóa đơn Online cho khách hàng này trong khoảng thời gian đã chọn.</td>
+                    </tr>
+                    <% } %>
+               </tbody>
+            </tbody>
+        </table>
+    </div>
+</div>    </div>
 </body>
 </html>
   

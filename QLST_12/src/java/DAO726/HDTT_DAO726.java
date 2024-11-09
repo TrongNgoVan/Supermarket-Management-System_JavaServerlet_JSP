@@ -1,5 +1,15 @@
+
+
+
 package DAO726;
 
+/**
+ *
+ * @author Ngọ Văn Trọng
+ */
+
+
+import Entity726.HDTrucTiep726;
 import Entity726.HoaDonMua726;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -13,10 +23,10 @@ import java.util.List;
  *
  * @author Ngọ Văn Trọng
  */
-public class HoadonMua_DAO726 {
+public class HDTT_DAO726 {
     private static Connection con;
 
-    public HoadonMua_DAO726() throws Exception {
+    public HDTT_DAO726() throws Exception {
         DAO726 dao = new DAO726();
         con = dao.getConnection(); // Kiểm tra kết nối tại đây
         if (con == null) {
@@ -24,9 +34,9 @@ public class HoadonMua_DAO726 {
         }
     }
 
-    public List<HoaDonMua726> getHDM(int maKH, Date nbd,  Date nkt) {
-        List<HoaDonMua726> dshd = new ArrayList<>();
-        String sql = "{CALL GetListHDM726(?, ?, ?)}"; // Gọi stored procedure
+    public List<HDTrucTiep726> getHDTT(int maKH, Date nbd,  Date nkt) {
+        List<HDTrucTiep726> dshd = new ArrayList<>();
+        String sql = "{CALL GetListHDTT726(?, ?, ?)}"; // Gọi stored procedure
 
         try (CallableStatement cstmt = con.prepareCall(sql)) {
             cstmt.setInt(1, maKH);      // Tham số đầu tiên là mã khách hàng
@@ -35,13 +45,14 @@ public class HoadonMua_DAO726 {
 
             try (ResultSet rs = cstmt.executeQuery()) {
                 while (rs.next()) {
-                    HoaDonMua726 hdm = new HoaDonMua726();
-                    hdm.setId(rs.getString("MaHD"));
-                    hdm.setNgayMua(rs.getDate("NgayMua"));
-                    hdm.setTrangThai(rs.getString("TrangThai"));
-                    hdm.setTongTien(rs.getDouble("TongTien"));
-                    hdm.setMaKH(rs.getInt("IDKH"));
-                    dshd.add(hdm);
+                    HDTrucTiep726 hdtt = new HDTrucTiep726();
+                    hdtt.setId(rs.getString("id"));
+                    hdtt.setNgayMua(rs.getDate("ngayMua"));
+               
+                    hdtt.setTongTien(rs.getDouble("tongTien"));
+                    hdtt.setMaNVBH(rs.getInt("maNVBH"));
+                    hdtt.setMaKH(rs.getInt("maKH"));
+                    dshd.add(hdtt);
                 }
             }
         } catch (SQLException e) {

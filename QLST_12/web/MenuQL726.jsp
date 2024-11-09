@@ -75,7 +75,7 @@
     </div>
     <div class="map-container">
         <div class="logo-container">
-            <img src="image/logo.png" alt="Logo" width="180" height="180"> <!-- Giảm kích thước hình ảnh -->
+            <img src="/image/logo.png" alt="Logo" width="180" height="180"> <!-- Giảm kích thước hình ảnh -->
         </div>
         <div class="map-description">
             <p>Hệ thống quản lý Siêu thị được xây dựng trên ý tưởng Bài tập lớn môn Phân tích thiết kế hệ thống thông tin do Giảng viên, TS. Đỗ Thị Bích Ngọc giảng dạy!</p>

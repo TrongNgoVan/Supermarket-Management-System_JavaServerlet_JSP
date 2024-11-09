@@ -168,4 +168,3 @@
         </div>
     </body>
     </html>
-// Vấn đề lớn: Không trôi được đối tượng khách hàng sang nhỉ 
