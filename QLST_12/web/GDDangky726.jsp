@@ -108,9 +108,12 @@
             khachHang.setPassword(password);
 
             KH_DAO726 khDao = new KH_DAO726();
-            boolean isRegistered = khDao.addKH(khachHang);
-            System.out.println("Đăng ký thành công: " + isRegistered);
-            message = isRegistered ? "Đăng ký thành công!" : "Đăng ký thất bại. Vui lòng thử lại!";
+            String maKH = khDao.addKH(khachHang);
+              if (maKH != null) {
+                message = "Đăng ký thành công! Mã khách hàng của bạn là: " + maKH;
+            } else {
+                message = "Đăng ký thất bại. Vui lòng thử lại!";
+            }
         }
     }
 %>
