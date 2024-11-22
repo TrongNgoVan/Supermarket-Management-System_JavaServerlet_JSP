@@ -153,7 +153,7 @@
     <div class="report-container">
         <%
             // Lấy danh sách hóa đơn dựa trên ID khách hàng từ sessionScope.ChonKH
-            TKKH726 selectedKH = (TKKH726) session.getAttribute("ChonKH");
+            TKKH726 selectedKH = (TKKH726) session.getAttribute("selectedKH");
             HoadonMua_DAO726 hdmdao = new HoadonMua_DAO726();
             List<HoaDonMua726> dshd = hdmdao.getHDM(selectedKH.getId(), selectedKH.getNgayBatDau(), selectedKH.getNgayKetThuc());
         

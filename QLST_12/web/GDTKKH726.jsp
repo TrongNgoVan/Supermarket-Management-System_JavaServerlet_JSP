@@ -119,6 +119,10 @@
 
 
                 List<TKKH726> dstk = tkkhdao.getTKKH(startDate, endDate);
+                
+                session.setAttribute("dstk", dstk);
+
+
             %>
 
             <!-- Hiển thị thống kê khách hàng -->
@@ -135,32 +139,36 @@
                     </thead>
                     <tbody>
                         <%
-                            // Kiểm tra và hiển thị thống kê
-                            if (dstk != null && ! dstk.isEmpty()) {
-                                for ( int i = 0 ; i<= dstk.size()-1; i++) {
+                            if (dstk != null && !dstk.isEmpty()) {
+                                for (int i = 0; i < dstk.size(); i++) {
+                                    TKKH726 kh = dstk.get(i);
                         %>
-                        <tr onclick="<% 
-                                session.setAttribute("ChonKH", dstk.get(i)); 
-                                %>window.location.href='GDListHD726.jsp'" 
-                                            style="cursor:pointer;">
-                            <td><%= i + 1 %></td>
-                            <td><%= dstk.get(i).getId() %></td>
-                                <td><%= dstk.get(i).getMaKH() %></td>
-                                <td><%= dstk.get(i).getHoTen() %></td>
-                                <td><%= dstk.get(i).getTongDT() %></td>
-                        </tr>
-
+                        <form action="SelectKH.jsp" method="post">
+                            <tr>
+                                <td><%= i + 1 %></td>
+                                <td><%= kh.getId() %></td>
+                                <td><%= kh.getMaKH() %></td>
+                                <td><%= kh.getHoTen() %></td>
+                                <td><%= kh.getTongDT() %></td>
+                                <!-- Input hidden để gửi ID Khách Hàng -->
+                                <input type="hidden" name="id" value="<%= kh.getId() %>">
+                                <td>
+                                    <button type="submit" style="cursor:pointer;">Chọn</button>
+                                </td>
+                            </tr>
+                        </form>
                         <%
                                 }
                             } else {
                         %>
                         <tr>
-                            <td colspan="3">Không có dữ liệu thống kê cho khoảng thời gian này.</td>
+                            <td colspan="6">Không có dữ liệu thống kê cho khoảng thời gian này.</td>
                         </tr>
                         <%
                             }
                         %>
                     </tbody>
+
 
 
                 </table>
