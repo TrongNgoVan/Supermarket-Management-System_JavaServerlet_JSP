@@ -140,7 +140,20 @@
         font-weight: bold;
         text-bold: center;
     }
+    .revenue-label {
+    background-color: #c50000; /* Màu xanh lá nhấn mạnh */
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
+    
     </style>
 </head>
 
@@ -154,6 +167,7 @@
         <%
             // Lấy danh sách hóa đơn dựa trên ID khách hàng từ sessionScope.ChonKH
             TKKH726 selectedKH = (TKKH726) session.getAttribute("selectedKH");
+            double tongtien = selectedKH.getTongDT();
             HoadonMua_DAO726 hdmdao = new HoadonMua_DAO726();
             List<HoaDonMua726> dshd = hdmdao.getHDM(selectedKH.getId(), selectedKH.getNgayBatDau(), selectedKH.getNgayKetThuc());
         
@@ -170,6 +184,7 @@
          <div class="customer-info-container">
             <div class="report-label">Khách hàng: <%= selectedKH.getHoTen() %></div>
             <div class="report-label">Mã Khách Hàng: <%= selectedKH.getMaKH() %></div>
+            
          </div>
 
         <!-- Hiển thị danh sách hóa đơn -->
@@ -239,7 +254,13 @@
             </tbody>
         </table>
     </div>
-</div>    </div>
+</div>  
+</div>
+        <div class="revenue-label">
+          Tổng Doanh Thu: <%= String.format("%,.0f", tongtien) %> VND
+       </div>
+
+
 </body>
 </html>
   
